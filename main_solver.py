@@ -196,6 +196,7 @@ def main_solve(eq, brkt, opr_char, isSolved):
         isSolved = True
     return eq2, isSolved, onSolve, doneBrkt
 
+print('Equation Solver v0.1\n')
 eq = input('Your equation: \n')
 brkt = [0,len(eq)]
 while not isSolved:
