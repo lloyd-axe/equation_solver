@@ -2,7 +2,6 @@ pth = '(', ')'
 opr = '^','*','/','+','-','.'
 isSolved = False
 onSolved = True
-brkt =[0,8]
 
 #VALIDITY CHECK
 def valid_chk(eq, brkt):
@@ -195,7 +194,7 @@ def main_solve(eq, brkt, opr_char, isSolved):
     if solved == 0:
         isSolved = True
     return eq2, isSolved, onSolve, doneBrkt
-
+'''
 print('Equation Solver v0.1\n')
 eq = input('Your equation: \n')
 brkt = [0,len(eq)]
@@ -208,8 +207,23 @@ while not isSolved:
             if isSolved:
                 print(f'Answer: {eq}')
                 break
-                                        
-    
+'''            
+def remote_solve(eq):
+    pth = '(', ')'
+    opr = '^','*','/','+','-','.'
+    isSolved = False
+    onSolved = True
+    brkt = [0,len(eq)]
+    while not isSolved:
+        for opr_char in opr:
+            if opr_char != '.':
+                eq, isSolved, onSolve, doneBrkt = main_solve(eq, brkt, opr_char, isSolved)
+                if doneBrkt:
+                    break
+                if isSolved:
+                    print(f'Answer: {eq}')
+                    break
+    return eq
 
 
                 
